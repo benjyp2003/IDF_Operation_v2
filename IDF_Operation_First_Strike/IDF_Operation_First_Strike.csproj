@@ -69,6 +69,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="terrorists\Weapons.cs" />
     <Compile Include="terrorists\WeaponsPoints.cs" />
+    <Compile Include="TheMostCommonTerrorist.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
