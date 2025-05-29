@@ -31,9 +31,9 @@ namespace IDF_Operation_First_Strike
                 int points = CalculateTerroristPoints(kvp.Key);
                 if (terroristsPoints.ContainsKey(kvp.Key))
                 {
-                    int oldPoints = terroristsPoints[kvp.Key];
-                    terroristsPoints[kvp.Key] = points;
-                    Console.WriteLine($"Updated points for {kvp.Key.Name}: {oldPoints} -> {points}");
+                    if (!kvp.Key.IsALive)
+                    { terroristsPoints[kvp.Key] = 0; }
+                    
                 }
                 else
                 {
@@ -49,11 +49,7 @@ namespace IDF_Operation_First_Strike
             int weaponPoints = WeaponsPoints.GetWeaponsPoints(terrorist);
             int totalPoints = rankPoints * weaponPoints;
 
-            //Console.WriteLine($"Calculating points for {terrorist.Name}:");
-            //Console.WriteLine($"- Rank points: {rankPoints}");
-            //Console.WriteLine($"- Weapon points: {weaponPoints}");
-            //Console.WriteLine($"- Total points: {totalPoints}");
-
+            
             return totalPoints;
         }
 
