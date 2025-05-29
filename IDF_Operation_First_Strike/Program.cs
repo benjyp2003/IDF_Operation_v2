@@ -13,6 +13,7 @@ namespace IDF_Operation_First_Strike
         static void Main(string[] args)
         {
 
+
             if (args.Length == 0)
             {
                 Console.WriteLine("You must pass the API key as a command - line argument");
@@ -51,6 +52,7 @@ namespace IDF_Operation_First_Strike
             // Start the command menu
             Console.WriteLine("Initialization complete. Starting command menu...\n");
             CommanderMenu.HandleChoice();
+
 
 
         }
