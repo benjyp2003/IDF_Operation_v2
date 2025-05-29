@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
@@ -9,40 +10,21 @@ namespace IDF_Operation_First_Strike
 {
     internal class GeminiIntelClient
     {
-       
-            private readonly HttpClient _httpClient;
-            private readonly string _apiKey;
 
-            public GeminiIntelClient(string apiKey)
-            {
-                _httpClient = new HttpClient();
-                _apiKey = apiKey;
-            }
+        private readonly HttpClient _httpClient;
+        private readonly string _apiKey;
 
-            public async Task<string> GetIntelAsync(string prompt)
-            {
-                string url = $"https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key={_apiKey}";
+        public GeminiIntelClient(string apiKey)
+        {
+            _httpClient = new HttpClient();
+            _apiKey = apiKey;
+        }
 
-                var body = new
-                {
-                    contents = new[]
-                    {
-                new {
-                    parts = new[] {
-                        new { text = prompt }
-                    }
-                }
-            }
-                };
+        public async Task<string> GetIntelAsync(string prompt)
+        {
+            string url = $"https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key={_apiKey}";
 
-                var json = JsonSerializer.Serialize(body);
-                var content = new StringContent(json, Encoding.UTF8, "application/json");
-
-                var response = await _httpClient.PostAsync(url, content);
-                response.EnsureSuccessStatusCode();
-
-                return await response.Content.ReadAsStringAsync();
-            
+            _httpClient.PostAsync(url, Newtonsoft) ;
         }
 
     }

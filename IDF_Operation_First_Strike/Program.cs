@@ -1,5 +1,6 @@
 ﻿using IDF_Operation_First_Strike.strikes;
 using System;
+using System.CodeDom;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,7 +21,7 @@ namespace IDF_Operation_First_Strike
 
             string apiKey = args[0]; // Read the first argument (your API key)
                                      // use the key as a part of the httpClient
-
+            
 
             //        // generating 5 - 10 terrorists
             //        int numTerrorists = GetRandomNumber.Rand.Next(5, 11);
